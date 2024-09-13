@@ -1,3 +1,7 @@
+from src.classes import Category, Product
+
+
+
 if __name__ == "__main__":
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
     product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
@@ -25,8 +29,8 @@ if __name__ == "__main__":
     print(category1.name == "Смартфоны")
     print(category1.description)
     print(len(category1.products))
-    print(category1.category_count)
-    print(category1.product_count)
+    print(category1.categories_quantity)
+    print(category1.products_quantity)
 
     product4 = Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)
     category2 = Category("Телевизоры",
@@ -38,5 +42,5 @@ if __name__ == "__main__":
     print(len(category2.products))
     print(category2.products)
 
-    print(Category.category_count)
-    print(Category.product_count)
+    print(Category.categories_quantity)
+    print(Category.products_quantity)
