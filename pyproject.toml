@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "oop"
+version = "0.1.0"
+description = ""
+authors = ["Vladimir Teslenko <vovateslenko.1996.28@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pytest = "^8.3.3"
+
+
+[tool.poetry.group.lint.dependencies]
+black = "^24.8.0"
+flake8 = "^7.1.1"
+mypy = "^1.11.2"
+isort = "^5.13.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.black]
+line-length = 119 # Максимальная длина строки
+exclude = '''
+(
+  /(
+      \.eggs         # Исключить несколько общих каталогов
+    | \.git          # в корне проекта
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | dist
+  )/
+  | foo.py           # Также отдельно исключить файл с именем foo.py
+                     # в корне проекта
+)
+'''  # Файлы, которые не нужно форматировать
+
+[tool.isort]
+line_length = 119
+
+[tool.mypy]
+disallow_untyped_defs = true
+warn_return_any = true
+exclude = 'venv'
