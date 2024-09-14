@@ -1,5 +1,3 @@
-import pytest
-from src.classes import Category, Product
 
 def test_category(category):
     assert category.name == 'Смартфоны'
@@ -12,4 +10,7 @@ def test_products(products):
     assert products.name == 'Xiaomi Redmi Note 11'
     assert products.description == '1024GB, Синий'
     assert products.quantity == 14
+
+
+
 
