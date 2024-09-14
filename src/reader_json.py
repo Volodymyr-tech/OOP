@@ -1,11 +1,13 @@
-import os
 import json
+import os
+
 from src.classes import Category, Product
 
+
 def reader_json(path: str) -> dict:
-    '''Функция для чтения JSON файла'''
+    """Функция для чтения JSON файла"""
     full_path = os.path.abspath(path)
-    with open(full_path, 'r', encoding='utf-8') as file:
+    with open(full_path, "r", encoding="utf-8") as file:
         data = json.load(file)
     return data
 
@@ -21,8 +23,7 @@ def object_json(json_file: dict):
     return category_objects, product_objects
 
 
-if __name__ == '__main__':
-    data = reader_json(r'..\data\products.json')
+if __name__ == "__main__":
+    data = reader_json(r"..\data\products.json")
 
     res = object_json(data)
-
