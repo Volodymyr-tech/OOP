@@ -1,12 +1,16 @@
+import pytest
+
 from src.category import Category
 from src.product import Product
-import pytest
+
 
 @pytest.fixture(autouse=True)
 def reset_category_quantities():
     # Сбрасываем значения перед каждым тестом
     Category.products_quantity = 0
     Category.categories_quantity = 0
+
+
 def test_category(category_instance):
     assert category_instance.name == "Смартфоны"
     assert (
@@ -45,5 +49,3 @@ def test_products(category):
         "Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.\n"
     )
     assert category.products == expected_output
-
-

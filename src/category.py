@@ -1,4 +1,6 @@
 from src.product import Product
+
+
 class Category:
     name: str
     description: str
@@ -8,15 +10,15 @@ class Category:
     products_quantity = 0
 
     def __init__(self, name, description, products):
-        self.name = name                                        #имя категории
-        self.description = description                          #Описание категории
-        self.__products = products                              #Список продуктов
+        self.name = name  # имя категории
+        self.description = description  # Описание категории
+        self.__products = products  # Список продуктов
 
-        Category.categories_quantity += 1                       #колличество категорий
-        Category.products_quantity += len(self.__products)      #колличество продуктов
+        Category.categories_quantity += 1  # колличество категорий
+        Category.products_quantity += len(self.__products)  # колличество продуктов
 
     def add_product(self, product):
-        '''Метод для добавления новых продуктов'''
+        """Метод для добавления новых продуктов"""
         if isinstance(product, Product):
             for prod in self.__products:
                 if prod.name == product.name:
@@ -36,5 +38,3 @@ class Category:
         for product in self.__products:
             product_str += f"{product.name}, {product.product_price} руб. Остаток: {product.quantity} шт.\n"
         return product_str
-
-
