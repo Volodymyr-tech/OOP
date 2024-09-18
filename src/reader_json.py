@@ -20,9 +20,9 @@ def object_json(json_file: list):
     for category_data in json_file:
 
         products_list = [Product(**product_data) for product_data in category_data.get("products", [])]
-        category = Category(name=category_data['name'],
-                            description=category_data['description'],
-                            products=products_list)
+        category = Category(
+            name=category_data["name"], description=category_data["description"], products=products_list
+        )
 
         category_objects.append(category)
     return category_objects
