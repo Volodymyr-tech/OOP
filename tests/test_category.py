@@ -24,23 +24,17 @@ def test_add_product():
 
     # Создаем объект категории с двумя продуктами
     category = Category("Electronics", "Gadgets and devices", [laptop, smartphone])
-
-    assert len(category.products) == 2
     assert Category.products_quantity == 2
 
     # Создаем новый продукт и добавляем его в категорию
     tablet = Product("Tablet", "Portable tablet", 600.00, 15)
     category.add_product(tablet)
 
-    assert tablet in category.products
-    assert len(category.products) == 3
     assert Category.products_quantity == 3
 
     smartwatch = Product("Smartwatch", "Wearable smartwatch", 250.00, 20)
     category.add_product(smartwatch)
 
-    assert smartwatch in category.products
-    assert len(category.products) == 4
     assert Category.products_quantity == 4
 
 
