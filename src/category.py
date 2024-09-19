@@ -23,8 +23,8 @@ class Category:
             for prod in self.__products:
                 if prod.name == product.name:
                     Category.products_quantity += 1
-                if prod.product_price < product.product_price:
-                    prod.product_price = product.product_price
+                if prod.price < product.price:
+                    prod.price = product.price
                     return
         else:
             raise TypeError("Продукт должен быть экземпляром класса Product")
@@ -36,5 +36,5 @@ class Category:
         """Список товаров в виде строк"""
         product_str = ""
         for product in self.__products:
-            product_str += f"{product.name}, {product.product_price} руб. Остаток: {product.quantity} шт.\n"
+            product_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
         return product_str

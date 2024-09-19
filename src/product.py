@@ -16,11 +16,11 @@ class Product:
         return cls(**product_dict)
 
     @property
-    def product_price(self):
+    def price(self):
         return self.__price
 
-    @product_price.setter
-    def product_price(self, price):
+    @price.setter
+    def price(self, price):
         if price <= 0:
             print("Цена не должна быть нулевая или отрицательная")
         elif price < self.__price:

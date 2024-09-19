@@ -15,12 +15,12 @@ def test_new_product(product_dict):
 
 
 def test_product_price(products):
-    assert products.product_price == 31000.0
-    products.product_price = 40000
-    assert products.product_price == 40000
+    assert products.price == 31000.0
+    products.price = 40000
+    assert products.price == 40000
 
 
 def test_product_price_zero(products, capsys):
-    products.product_price = -500
+    products.price = -500
     captured = capsys.readouterr()
     assert captured.out == "Цена не должна быть нулевая или отрицательная\n"
