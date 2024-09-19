@@ -25,7 +25,6 @@ class Category:
                     Category.products_quantity += 1
                 if prod.price < product.price:
                     prod.price = product.price
-                    return
         else:
             raise TypeError("Продукт должен быть экземпляром класса Product")
         self.__products.append(product)
