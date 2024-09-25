@@ -17,18 +17,21 @@ class Category:
         Category.categories_quantity += 1  # колличество категорий
         Category.products_quantity += len(self.__products)  # колличество продуктов
 
+
     def add_product(self, product):
-        """Метод для добавления новых продуктов"""
+        """Метод для добавления нового продукта или обновления существующего"""
         if isinstance(product, Product):
-            for prod in self.__products:
-                if prod.name == product.name:
-                    Category.products_quantity += 1
-                if prod.price < product.price:
-                    prod.price = product.price
+            # Проверяем, есть ли продукт с таким же именем
+            for existing_product in self.__products:
+                if existing_product.name == product.name:
+                    # Обновляем количество и цену, если продукт уже есть
+                    existing_product.quantity += product.quantity
+                    existing_product.price = max(existing_product.price, product.price)
+                    return
+            self.__products.append(product)
         else:
             raise TypeError("Продукт должен быть экземпляром класса Product")
-        self.__products.append(product)
-        Category.products_quantity += 1
+
 
     @property
     def products(self):
