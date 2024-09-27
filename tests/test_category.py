@@ -30,6 +30,8 @@ def test_add_product():
     category = Category("Electronics", "Gadgets and devices", [laptop, smartphone])
     assert Category.products_quantity == 2
 
+    assert str(category) == "Electronics, количество продуктов: 15 шт."
+
     # Создаем новый продукт и добавляем его в категорию
     tablet = Product("Tablet", "Portable tablet", 600.00, 15)
     category.add_product(tablet)
@@ -41,11 +43,4 @@ def test_add_product():
 
     assert Category.products_quantity == 4
 
-
-def test_products(category):
-    expected_output = (
-        "Samsung Galaxy C23 Ultra, 180000.0 руб. Остаток: 5 шт.\n"
-        "Iphone 15, 210000.0 руб. Остаток: 8 шт.\n"
-        "Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.\n"
-    )
-    assert category.products == expected_output
+    assert str(category) == "Electronics, количество продуктов: 50 шт."

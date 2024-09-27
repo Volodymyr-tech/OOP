@@ -62,3 +62,15 @@ def category():
             Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14),
         ],
     )
+
+
+@pytest.fixture
+def category_():
+    return Category(
+        name="Мобильная техника",
+        description="Телефоны и больше ничего",
+        products=[
+            Product("Iphone 15", "512GB, Gray space", 95000, quantity=8),
+            Product("Iphone 16pro", "256, Black", 150000, quantity=16),
+        ],
+    )
