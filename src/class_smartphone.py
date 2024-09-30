@@ -1,5 +1,6 @@
 from src.product import Product
 
+
 class Smartphone(Product):
 
     def __init__(self, name, description, price, quantity, efficiency, model, memory, color):
@@ -8,5 +9,3 @@ class Smartphone(Product):
         self.model = model
         self.memory = memory
         self.color = color
-
-
