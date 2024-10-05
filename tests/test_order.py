@@ -20,3 +20,8 @@ def test_order():
     assert Order.order_id == 4
 
 
+def test_products_getter():
+    product1 = Product("Programs", "goodbyedpi", 0, quantity=10)
+    order = Order(product1, 2)
+    assert order.products == "Programs, goodbyedpi"
+
