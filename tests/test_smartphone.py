@@ -39,3 +39,16 @@ def test_add_raise_error():
 
     with pytest.raises(TypeError):
         smartphone_1 + grass
+
+
+def test_new_smart(smartphone):
+    smart = Smartphone.new_product(smartphone)
+
+    assert smart.name == "Samsung Galaxy C23 Ultra"
+    assert smart.description == "256GB, Серый цвет, 200MP камера"
+    assert smart.price == 180000.0
+    assert smart.quantity == 5
+    assert smart.efficiency == 10
+    assert smart.model == 2024
+    assert smart.memory == 1024
+    assert smart.color == "red"
