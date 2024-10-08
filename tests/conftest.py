@@ -74,3 +74,16 @@ def category_():
             Product("Iphone 16pro", "256, Black", 150000, quantity=16),
         ],
     )
+
+@pytest.fixture
+def smartphone():
+    return {
+        'name': "Samsung Galaxy C23 Ultra",
+        'description': "256GB, Серый цвет, 200MP камера",
+        'price': 180000.0,
+        'quantity': 5,
+        'efficiency': 10,
+        'model': 2024,
+        'memory': 1024,
+        'color': "red"
+    }
