@@ -51,11 +51,8 @@ def test_products():
     smartphone = Product("Smartphone", "Latest model smartphone", 800.00, 5)
 
     # Создаем объект категории с двумя продуктами
-    category = Category("Electronics", "Gadgets and devices", [laptop, smartphone])
     result = laptop + smartphone
     assert result == 16000.0
-
-
 
     # Создаем новый продукт и добавляем его в категорию
     same_product = Product("Smartphone", "Latest model smartphone", 800.00, 100)
@@ -66,7 +63,6 @@ def test_products():
 def test_error_raise():
     category = Category("Electronics", "Gadgets and devices", [])
     assert category.average_price() == 0
-
 
 
 def test_average_price():

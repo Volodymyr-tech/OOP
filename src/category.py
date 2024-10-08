@@ -1,5 +1,6 @@
 from src.product import Product
 
+
 class Category:
     name: str
     description: str
@@ -53,7 +54,7 @@ class Category:
         return self.__products
 
     def average_price(self):
-        '''Метод подсчитывает средний ценник всех товаров.'''
+        """Метод подсчитывает средний ценник всех товаров."""
         try:
             # Если товаров нет, то деление на 0 вызовет исключение
             if len(self.__products) == 0:

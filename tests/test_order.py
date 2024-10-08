@@ -1,8 +1,9 @@
 import pytest
 
 from src.class_exception import ZeroQuantityError
-from src.product import Product
 from src.order import Order
+from src.product import Product
+
 
 def setup_function():
     Order.order_id = 0
@@ -30,15 +31,14 @@ def test_raise_error_capsys(capsys):
         order = Order(product1, 0)
 
         captured = capsys.readouterr()
-        assert captured.out == 'Ваш список товаров пуст, так нельзя\n'
-
+        assert captured.out == "Ваш список товаров пуст, так нельзя\n"
 
 
 def test_capsys(capsys):
     product1 = Product("Programs", "goodbyedpi", 1500, quantity=10)
     order = Order(product1, 1)
     captured = capsys.readouterr()
-    assert captured.out == 'Programs добавлен\n'
+    assert captured.out == "Programs добавлен\n"
     assert order._product.quantity == 9
 
 
