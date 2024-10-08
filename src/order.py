@@ -13,23 +13,26 @@ class Order(BaseOrderProduct):
     order_id = 0
 
     def __init__(self, product, quantity):
-        self.__product = product
+        self._product = product
 
         if quantity > 0:
-            self.__quantity = quantity  # Колличество продукта
-            print(f'{self.__product.name } добавлен')
+            self._quantity = quantity  # Колличество продукта
+            print(f'{self._product.name } добавлен')
         else:
             raise ZeroQuantityError
 
-        self.order_id += 1
+        self._product.quantity -= self._quantity
+
         Order.order_id += 1
+        self.order_id = Order.order_id
+
 
 
     def __str__(self):
-        return f"{self.__product.name}, {self.__product.description} {self.total_price()}"
+        return f"{self._product.name}, {self._product.description} {self.total_price()}"
 
     def total_price(self):
-        total_price = self.__product.__quantity * self.__product.price
+        total_price = self._quantity * self._product.price
         return total_price
 
 
