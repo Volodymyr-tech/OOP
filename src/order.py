@@ -17,7 +17,7 @@ class Order(BaseOrderProduct):
 
         if quantity > 0:
             self.__quantity = quantity  # Колличество продукта
-            print(f'{self.__product } добавлен')
+            print(f'{self.__product.name } добавлен')
         else:
             raise ZeroQuantityError
 
