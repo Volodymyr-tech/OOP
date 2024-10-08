@@ -1,5 +1,6 @@
 import pytest
 
+from src.class_exception import ZeroQuantityError
 from src.product import Product
 from src.order import Order
 
@@ -24,4 +25,14 @@ def test_products_getter():
     product1 = Product("Programs", "goodbyedpi", 0, quantity=10)
     order = Order(product1, 2)
     assert order.products == "Programs, goodbyedpi"
+
+
+def test_raise_error(capsys):
+    product1 = Product("Programs", "goodbyedpi", 0, quantity=10)
+    with pytest.raises(ZeroQuantityError):
+        order = Order(product1, 0)
+
+        captured = capsys.readouterr()
+        assert captured.out == 'Ваш список товаров пуст, так нельзя'
+
 

@@ -1,3 +1,4 @@
+from src.class_exception import ZeroQuantityError
 from src.product import Product
 from src.base_order import BaseOrderProduct
 
@@ -13,7 +14,12 @@ class Order(BaseOrderProduct):
 
     def __init__(self, product, quantity):
         self.__products = product
-        self.__quantity = quantity
+
+        if quantity:
+            self.__quantity = quantity  # Колличество продукта
+        else:
+            raise ZeroQuantityError()
+
         self.__total_price = 0
         self.order_id += 1
 
