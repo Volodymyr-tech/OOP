@@ -5,5 +5,5 @@ class BaseOrderProduct(ABC):
     """Базовый класс краткой информации о товаре"""
 
     @abstractmethod
-    def products(self):
+    def __str__(self):
         pass

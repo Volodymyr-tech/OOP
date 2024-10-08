@@ -41,6 +41,7 @@ def test_product_repr(capsys):
     product = Product("Телефон", "Смартфон", 1000, 10)
 
     # Захватываем вывод в консоль
+    print(repr(product))
     captured = capsys.readouterr()
 
     # Проверяем, что вывод соответствует ожидаемому

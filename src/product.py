@@ -1,5 +1,6 @@
 from src.base_product import BaseProduct
 from src.mixin import PrintMixin
+
 class Product(BaseProduct, PrintMixin):
     name: str
     description: str

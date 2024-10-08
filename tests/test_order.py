@@ -21,18 +21,16 @@ def test_order():
     assert Order.order_id == 4
 
 
-def test_products_getter():
-    product1 = Product("Programs", "goodbyedpi", 0, quantity=10)
-    order = Order(product1, 2)
-    assert order.products == "Programs, goodbyedpi"
-
-
-def test_raise_error(capsys):
-    product1 = Product("Programs", "goodbyedpi", 0, quantity=10)
+def test_raise_error():
+    product1 = Product("Programs", "goodbyedpi", 150, quantity=10)
     with pytest.raises(ZeroQuantityError):
         order = Order(product1, 0)
 
-        captured = capsys.readouterr()
-        assert captured.out == 'Ваш список товаров пуст, так нельзя'
 
+
+def test_capsys_error(capsys):
+    product1 = Product("Programs", "goodbyedpi", 1500, quantity=10)
+    order = Order(product1, 1)
+    captured = capsys.readouterr()
+    assert captured.out == 'Programs добавлен\n'
 
