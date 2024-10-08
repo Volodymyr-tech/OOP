@@ -1,5 +1,4 @@
 from src.product import Product
-from src.class_iter import IterCategory
 
 class Category:
     name: str
