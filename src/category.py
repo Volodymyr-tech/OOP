@@ -1,5 +1,5 @@
 from src.product import Product
-
+from src.class_iter import IterCategory
 
 class Category:
     name: str
@@ -52,3 +52,17 @@ class Category:
     @property
     def products_list(self):
         return self.__products
+
+    def average_price(self):
+        '''Метод подсчитывает средний ценник всех товаров.'''
+        try:
+            # Если товаров нет, то деление на 0 вызовет исключение
+            if len(self.__products) == 0:
+                raise ZeroDivisionError("Нет товаров в категории")
+
+            total_price = sum([product.price for product in self.__products])
+            return total_price / len(self.__products)
+
+        except ZeroDivisionError:
+            print("Ошибка: В категории нет товаров, невозможно вычислить среднюю цену.")
+            return 0
