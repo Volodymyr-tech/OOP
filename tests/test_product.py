@@ -36,11 +36,13 @@ def test_add(capsys):
     product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
     assert product1 + product2 == 2580000.0
 
+
 def test_product_repr(capsys):
     # Создаем объект класса Product
     product = Product("Телефон", "Смартфон", 1000, 10)
 
     # Захватываем вывод в консоль
+    print(repr(product))
     captured = capsys.readouterr()
 
     # Проверяем, что вывод соответствует ожидаемому

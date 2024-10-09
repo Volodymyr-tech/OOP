@@ -44,3 +44,29 @@ def test_add_product():
     assert Category.products_quantity == 4
 
     assert str(category) == "Electronics, количество продуктов: 50 шт."
+
+
+def test_products():
+    laptop = Product("Laptop", "High-performance laptop", 1200.00, 10)
+    smartphone = Product("Smartphone", "Latest model smartphone", 800.00, 5)
+
+    # Создаем объект категории с двумя продуктами
+    result = laptop + smartphone
+    assert result == 16000.0
+
+    # Создаем новый продукт и добавляем его в категорию
+    same_product = Product("Smartphone", "Latest model smartphone", 800.00, 100)
+
+    assert same_product.quantity == 100
+
+
+def test_error_raise():
+    category = Category("Electronics", "Gadgets and devices", [])
+    assert category.average_price() == 0
+
+
+def test_average_price():
+    laptop = Product("Laptop", "High-performance laptop", 10, 2)
+    smartphone = Product("Smartphone", "Latest model smartphone", 10, 3)
+    category = Category("Electronics", "Gadgets and devices", [laptop, smartphone])
+    assert category.average_price() == 10

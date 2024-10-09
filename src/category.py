@@ -52,3 +52,22 @@ class Category:
     @property
     def products_list(self):
         return self.__products
+
+    def average_price(self):
+        """Метод подсчитывает средний ценник всех товаров."""
+        try:
+            # Если товаров нет, то деление на 0 вызовет исключение
+            if len(self.__products) == 0:
+                raise ZeroDivisionError("Нет товаров в категории")
+
+            total_price = sum([product.price * product.quantity for product in self.__products])
+            total_quantity = sum([product.quantity for product in self.__products])
+
+            if total_quantity == 0:
+                return 0  # Защита от деления на 0
+
+            return total_price / total_quantity
+
+        except ZeroDivisionError:
+            print("Ошибка: В категории нет товаров, невозможно вычислить среднюю цену.")
+            return 0

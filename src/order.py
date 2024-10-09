@@ -1,5 +1,6 @@
-from src.product import Product
 from src.base_order import BaseOrderProduct
+from src.class_exception import ZeroQuantityError
+from src.product import Product
 
 
 class Order(BaseOrderProduct):
@@ -12,30 +13,22 @@ class Order(BaseOrderProduct):
     order_id = 0
 
     def __init__(self, product, quantity):
-        self.__products = product
-        self.__quantity = quantity
-        self.__total_price = 0
-        self.order_id += 1
+        self._product = product
+
+        if quantity > 0:
+            self._quantity = quantity  # Колличество продукта
+            print(f"{self._product.name} добавлен")
+        else:
+            raise ZeroQuantityError
+
+        self._product.quantity -= self._quantity
 
         Order.order_id += 1
+        self.order_id = Order.order_id
 
-    @property
-    def products(self):
-        return f"{self.__products.name}, {self.__products.description}"
+    def __str__(self):
+        return f"{self._product.name}, {self._product.description} {self.total_price()}"
 
-    @property
-    def quantity(self):
-        return self.__quantity
-
-    @products.setter
-    def products(self, new_product):
-        raise ValueError("Добавлять новый товар в уже созданный заказ невозможно!")
-
-    @quantity.setter
-    def quantity(self, new_quantity):
-        self.__quantity += new_quantity
-
-    @property
     def total_price(self):
-        self.__total_price = self.__quantity * self.__products.price
-        return self.__total_price
+        total_price = self._quantity * self._product.price
+        return total_price
